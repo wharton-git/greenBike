@@ -44,16 +44,11 @@
                 <div class="presentation font-bold text-3xl">
                     Payement par Mobile Money
                 </div>
-                <div class="cta grid grid-cols-3">
-                    <div class="bg-green-600 w-5/6 mx-auto px-3 py-2 drop-shadow-lg shadow-2xl rounded-lg text-white hover:bg-green-800">
-                        <a href="./payement-2.html">MVola</a>
-                    </div>
-                    <div class="bg-orange-500 w-5/6 mx-auto px-3 py-2 drop-shadow-lg shadow-2xl rounded-lg text-white hover:bg-orange-800">
-                        <a href="./payement-2.html">Orange Money</a>
-                    </div>
-                    <div class="bg-red-700 w-5/6 mx-auto px-3 py-2 drop-shadow-lg shadow-2xl rounded-lg text-white hover:bg-red-900">
-                        <a href="./payement-2.html">Airtel Money</a>
-                    </div>
+                <div class="cta">
+                    <form action="" id="payeForm">
+                        <input type="text" name="numero" id="numero" class="bg-gray-300 px-4 py-1 rounded-md mb-5" placeholder="Numero de téléphone"> <br>
+                        <input type="submit" value="payer" class="py-1 px-6 bg-green-600 text-white rounded-md">
+                    </form>
                 </div>
             </div>
 
@@ -65,5 +60,6 @@
 
         <script src="../scripts/deconnexion.js"></script>
         <script src="../scripts/nav.js"></script>
+        <script src="../scripts/paye.js"></script>
     </body>
 </html>
