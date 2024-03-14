@@ -1,0 +1,51 @@
+.trans, .show, #dropMenu, #drop {
+  transition: all 0.6s ease-in-out;
+}
+
+.dropMenuList li.dropOption {
+  transition: all 0.2s linear;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+  animation: show 0.5s linear;
+}
+
+.dropEnable {
+  transform: rotate(180deg);
+}
+
+.dropDisable {
+  transform: rotate(0);
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.sectionAcc {
+  padding: 5%;
+}
+
+.presentation {
+  margin: 50px auto 50px auto;
+}
+
+.cta {
+  margin: 50px auto 50px auto;
+}
+.cta div {
+  transition: all 0.3s linear;
+}
+
+/*# sourceMappingURL=style.css.map */
