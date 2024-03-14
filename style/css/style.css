@@ -42,10 +42,19 @@
 }
 
 .cta {
-  margin: 50px auto 50px auto;
+  margin: 5% auto 50px auto;
 }
 .cta div {
   transition: all 0.3s linear;
+}
+.cta .ctaOP {
+  margin: 3% auto;
+}
+
+@media (max-width: 700px) {
+  .cta {
+    margin: 25% auto 50px auto;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
