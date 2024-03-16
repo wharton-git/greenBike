@@ -52,7 +52,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
             if (userInfo.password === password) {
                 setCookie('username', username, 30);
                 setCookie('password', password, 30);
-                window.location.href = './../pages/accueil.html';
+                window.location.href = './pages/accueil.html';
             } else {
                 alert("Mot de passe incorrect")
             }
