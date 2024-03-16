@@ -35,19 +35,54 @@ if (loggedInUser !== '') {
 }
 
 document.getElementById('loginForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Empêcher le rechargement de la page
+    event.preventDefault(); 
 
     var username = document.getElementById('username').value;
     var password = document.getElementById('password').value;
 
-    // Vérifier les informations de connexion avec les données stockées dans le cookie
-    var storedUsername = getCookie('username');
-    var storedPassword = getCookie('password');
-
-    if (username === storedUsername && password === storedPassword) {
-    // Rediriger l'utilisateur vers la page de tableau de bord
-    window.location.href = './pages/accueil.html';
-    } else {
-    alert("Utilisateur non trouvé")
-    }
+    fetch('https://api-xeon.000webhostapp.com/users.php').then (response => {
+        if (!response.ok) {
+        throw new Error('Network response was not ok');
+        }
+        return response.json();
+    }).then (userData => {
+        const userInfo = userData.find(user => user.login === username);
+        console.log(userInfo)
+        if (userInfo) {
+            if (userInfo.password === password) {
+                setCookie('username', username, 30);
+                setCookie('password', password, 30);
+                window.location.href = './../pages/accueil.html';
+            } else {
+                alert("Mot de passe incorrect")
+            }
+        }
+        else {
+            alert("Utilisateur non trouvé")
+        }
+    })
 });
+
+
+// Fonction pour récupérer les données depuis l'API
+function getJoursFromAPI() {
+    fetch('http://localhost/Api/users.php')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        // Traitement des données récupérées (par exemple, affichage dans la console)
+        console.log('Données récupérées depuis l\'API:', data);
+        // Vous pouvez maintenant utiliser ces données dans votre application front-end
+    })
+    .catch(error => {
+        console.error('There was a problem with your fetch operation:', error);
+    });
+}
+
+// Appel de la fonction pour récupérer les données
+getJoursFromAPI();
+
